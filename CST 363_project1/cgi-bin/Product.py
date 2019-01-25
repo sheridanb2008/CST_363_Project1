@@ -20,16 +20,16 @@ if "submit" in form:
 print("Content-Type: text/html")    # HTML is following
 print()                             # blank line required, end of headers
 print("<html><body>")
-print("<p>Hello ",userid,"</p><br>")
-user_sql = 'select userid from login where userid = %s'
+
+
 product_name_sql = 'select product_name from product_type where product_name = %s'
-insert_sql = 'insert into login (product_id, product_name, product_description) values (DEFAULT, %s, %s)'
-update_sql = 'update login set visits = visits + 1 where userid=%s and password=%s'
+insert_sql = 'insert into product_type (product_id, product_name, product_description) values (DEFAULT, %s, %s)'
+
 
 # connect to database
 cnx = mysql.connector.connect(user='root',
                                 password='sesame',
-                                database='cst363',
+                                database='mrs_project1',
                                 host='127.0.0.1')
 
  
@@ -40,11 +40,11 @@ cursor.execute(product_name_sql,[product_name])
 row = cursor.fetchone()
 if row is None and submit is True:
     cursorb = cnx.cursor()
-    cursorb.execute(update_sql, (product_name, product_description))
+    cursorb.execute(insert_sql, (product_name, product_description))
     cnx.commit()
 elif row is not None and submit is True:
     # retrieve visits value from table and increment
-    print('Duplicate Entry'
+    print('Duplicate Entry')
 
 print("</body></html>")
 cnx.commit()
