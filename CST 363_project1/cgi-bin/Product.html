@@ -2,7 +2,12 @@
 <html>
 <body>
 <h1>Add New Product to Inventory</h1>
-<p>What function would you like to perform</p>
+<p>Enter the new product</p>
+	<form action="/product.py" method = "post">
+	Product Name:<input type="text" name="product_name"/> <br/>
+	Product Descripion: <input type="text" name="product_description" /> <br/><br/>
+	<input type="submit" name="submit" value="Submit"/>
+	</form><br/>
 	<a href="..\Homepage.html"><button>Return to Homepage</button></a>
 	
 </form>

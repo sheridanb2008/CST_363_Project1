@@ -21,8 +21,8 @@ CREATE TABLE customer_info
 CREATE TABLE product_type
 (
 	product_id					INT					PRIMARY KEY					AUTO_INCREMENT,
-    produce_name				VARCHAR(45)			NOT NULL,
-    produce_description			VARCHAR(45)			NOT NULL
+    product_name				VARCHAR(45)			NOT NULL,
+    product_description			VARCHAR(45)			NOT NULL
 );
 CREATE TABLE recall_notices
 (
