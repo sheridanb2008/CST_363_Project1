@@ -1,6 +1,6 @@
 # Brian Sheridan Samuel Pearce
 #Assignment part 2
-# Product.py
+# Sale.py
 # this file must be in the /cgi-bin/ directory of the server
 import cgitb , cgi
 import mysql.connector
@@ -8,8 +8,17 @@ cgitb.enable()
 form = cgi.FieldStorage()
 #
 # retrieve input values
-product_name = form["product_name"].value
-product_description = form["product_description"].value
+first_name = form["first"].value
+last_name = form["last"].value
+street_address = form["street"].value
+city = form["city"].value
+state = form["state"].value
+zip_code = form["zip"].value
+phone_number = form["phone"].value
+email_adress = form["email"].value
+serial = form["serial"].value
+product_type = form["product"].value
+manufacture_date = form["mdate"].value
 submit = False
 
 if "submit" in form:
@@ -22,9 +31,10 @@ print()                             # blank line required, end of headers
 print("<html><body>")
 
 
-product_name_sql = 'select product_name from product_type where product_name = %s'
-insert_sql = 'insert into product_type (product_id, product_name, product_description) values (DEFAULT, %s, %s)'
-
+product_serial_sql = 'select serial_number from products where serial_number = %s'
+product_type_sql = 'select product_id from product_type where product_id = %s'
+insert_product_sql = 'insert into products values (%s, %s, %s)'
+insert_customer_sql = 'insert into customer_info values (DEFAULT, %s, %s, %s, %s, %s, %s, %s, %s)'
 
 # connect to database
 cnx = mysql.connector.connect(user='root',
@@ -42,7 +52,6 @@ if row is None and submit is True:
     cursorb = cnx.cursor()
     cursorb.execute(insert_sql, (product_name, product_description))
     cnx.commit()
-    print('Thank you, The product has been added.')
 elif row is not None and submit is True:
     # retrieve visits value from table and increment
     print('Duplicate Entry')
