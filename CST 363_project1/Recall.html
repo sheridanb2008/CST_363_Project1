@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
 <h1>Create Recall Notice</h1>
-<p>What function would you like to perform</p>
+<p>Please fill out the following boxes, then hit submit</p>
+	<form action="/cgi-bin/recall.py" method = "post">
+	Product ID:<input type="text" name="product_id"/><br/>
+	Affected Start Date: <input type="text" name="affected_start_date"/><br/>
+	Affected End Date: <input type="text" name="affected_end_date"/><br/>
+	Description Of Problem: <input type="text" name="issue_description"/><br/>
+	<input type="submit" name="submit" value="Submit"/>
+	</form>
+	<form action="/cgi-bin/recall_table.py" method = "post">
+	<p>To display the current list of recalls please press "Recalls".</p>	
+	<input type="submit" name="Recalls" value="Recalls"/>
+	</form><br/>	
 	<a href="Homepage.html"><button>Return to Homepage</button></a>
-</form>
-</body>
+</head>	
 </html>
