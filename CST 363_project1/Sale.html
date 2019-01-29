@@ -4,18 +4,18 @@
 <h1>Create New Sale</h1>
 <p>Fill out Buyer's information below:</p>
 	<form action="/cgi-bin/sale.py" method = "post">
-	First Name:<input type="text" name="first"/>
-	Last Name:<input type="text" name="last"/> <br/>
-	Street Address:<input type="text" name="street"/>
-	City:<input type="text" name="city"/> 
-	State:<input type="text" name="state"/> 
-	Zip Code:<input type="int" name="zip"/> <br/>
-	Phone Number:<input type="text" name="phone"/> 
-	Email Address:<input type="text" name="email"/> <br/><br/>
+	First Name:<input type="text" name="first" required/>
+	Last Name:<input type="text" name="last" required/> <br/>
+	Street Address:<input type="text" name="street" required/>
+	City:<input type="text" name="city" required/> 
+	State:<input type="text" name="state" required/> 
+	Zip Code:<input type="int" name="zip" required/> <br/>
+	Phone Number:<input type="text" name="phone" required/> 
+	Email Address:<input type="text" name="email" required/> <br/><br/>
 	<p>Fill out Product information below:</p>	
-	Serial Number:<input type="int" name="serial"/> <br/>
-	Product Type:<input type="int" name="serial"/> <br/>
-	Manufacture Date:<input type="date" name="mdate"/> <br/>
+	Serial Number:<input type="int" name="serial" required/> <br/>
+	Product Type:<input type="int" name="product" required/> <br/>
+	Manufacture Date:<input type="date" name="mdate" required/> <br/>
 	
 	<input type="submit" name="submit" value="Submit"/>
 	</form><br/>
