@@ -9,10 +9,10 @@ table, th, td {
 <h1>Create Recall Notice</h1>
 <p>Please fill out the following boxes, then hit submit</p>
 	<form action="/cgi-bin/recall.py" method = "post">
-	Product ID:<input type="text" name="product_id"/><br/>
-	Affected Start Date: <input type="text" name="affected_start_date"/><br/>
-	Affected End Date: <input type="text" name="affected_end_date"/><br/>
-	Description Of Problem: <input type="text" name="issue_description"/><br/>
+	Product ID:<input type="text" name="product_id" required/><br/>
+	Affected Start Date: <input type="text" name="affected_start_date" required/><br/>
+	Affected End Date: <input type="text" name="affected_end_date" required/><br/>
+	Description Of Problem: <input type="text" name="issue_description" required/><br/>
 	<input type="submit" name="submit" value="Submit"/>
 	</form>
 	<form action="/cgi-bin/recall_table.py" method = "post">
