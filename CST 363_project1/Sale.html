@@ -4,19 +4,47 @@
 <h1>Create New Sale</h1>
 <p>Fill out Buyer's information below:</p>
 	<form action="/cgi-bin/sale.py" method = "post">
-	First Name:<input type="text" name="first" required/>
-	Last Name:<input type="text" name="last" required/> <br/>
-	Street Address:<input type="text" name="street" required/>
-	City:<input type="text" name="city" required/> 
-	State:<input type="text" name="state" required/> 
-	Zip Code:<input type="int" name="zip" required/> <br/>
-	Phone Number:<input type="text" name="phone" required/> 
-	Email Address:<input type="text" name="email" required/> <br/><br/>
-	<p>Fill out Product information below:</p>	
-	Serial Number:<input type="int" name="serial" required/> <br/>
-	Product Type:<input type="int" name="product" required/> <br/>
-	Manufacture Date:<input type="date" name="mdate" required/> <br/>
-	
+	<table>
+		<tr>
+			<td align="right">First Name:</td>
+			<td align="left"><input type="text" name="first" required/>
+			
+			<td align="right">Last Name:</td>
+			<td align="left"><input type="text" name="last" required/><br/>
+		</tr>
+		<tr>
+			<td align="right">Street Address:</td>
+			<td align="left"><input type="text" name="street" required/>
+			
+			<td align="right">City:</td>
+			<td align="left"><input type="text" name="city" required/>
+
+			<td align="right">Zip Code:</td>
+			<td align="left"><input type="int" name="zip" required/><br/>
+		</tr>
+		<tr>
+			<td align="right">Phone Number:</td>
+			<td align="left"><input type="text" name="phone" required/>
+			
+			<td align="right">Email Address:</td>
+			<td align="left"><input type="text" name="email" required/><br/>
+		</tr>
+	</table>	
+<p>Fill out Product information below:</p>	
+	<table>
+		<tr>
+			<td align="right">Serial Number:</td>
+			<td align="left"><input type="int" name="serial" required/><br/>
+		</tr>
+		<tr>
+			<td align="right">Product Type:</td>
+			<td align="left"><input type="int" name="product" required/><br/>
+		</tr>
+		<tr>
+			<td align="right">Manufacture Date:</td>
+			<td align="left"><input type="date" name="mdate" required/><br/>
+		</tr>
+	</table>
 	<input type="submit" name="submit" value="Submit"/>
 	</form><br/>
 	<a href="Homepage.html"><button>Return to Homepage</button></a>

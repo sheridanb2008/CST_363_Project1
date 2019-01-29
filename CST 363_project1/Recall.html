@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-table, th, td {
-	border: 1px solid black;
-}
-</style>
 <h1>Create Recall Notice</h1>
 <p>Please fill out the following boxes, then hit submit</p>
-	<form action="/cgi-bin/recall.py" method = "post">
-	Product ID:<input type="text" name="product_id" required/><br/>
-	Affected Start Date: <input type="date" name="affected_start_date" required/><br/>
-	Affected End Date: <input type="date" name="affected_end_date" required/><br/>
-	Description Of Problem: <input type="text" name="issue_description" required/><br/>
+<form action="/cgi-bin/recall.py" method="post">
+<table>
+	<tr>
+		<td align="right">Product ID:</td>
+		<td align="left"><input type="text" name="product_id" required/><br/>
+	</tr>
+	<tr>
+		<td align="right">Affected Start Date:</td>
+		<td align="left"><input type="date" name="affected_start_date" required/><br/>
+	</tr>
+	<tr>
+		<td align="right">Affected End Date:</td>
+		<td align="left"><input type="date" name="affected_end_date" required/><br/>
+	</tr>
+	<tr>
+		<td align="right">Description of Problem:</td>
+		<td align="left"><input type="text" name="issue_description" required/><br/>
+	</tr>
+</table>
 	<input type="submit" name="submit" value="Submit"/>
 	</form>
 	<form action="/cgi-bin/recall_table.py" method = "post">
@@ -20,5 +29,5 @@ table, th, td {
 	<input type="submit" name="Recalls" value="Recalls"/>
 	</form><br/>	
 	<a href="Homepage.html"><button>Return to Homepage</button></a>
-</head>	
+</head>
 </html>
