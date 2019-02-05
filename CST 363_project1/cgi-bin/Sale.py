@@ -38,6 +38,13 @@ get_customer_id = 'select customer_id from customer_info where first_name = %s a
 insert_product_sql = 'insert into products values (%s, %s, %s)'
 insert_customer_sql = 'insert into customer_info values (DEFAULT, %s, %s, %s, %s, %s, %s, %s, %s)'
 insert_purchase_sql = 'insert into customer_purchases values (DEFAULT,%s,%s,%s)'
+return_Serial_used =  '''select p.serial_number, pt.product_name, (select  ci.first_name  
+		                from customer_info ci, customer_purchases cp 
+                        where ci.customer_id = cp.customer_id and cp.serial_number = %s ),  (select  ci.last_name  
+		                from customer_info ci, customer_purchases cp 
+                        where ci.customer_id = cp.customer_id and cp.serial_number = %s )
+                        from products p, product_type pt 
+                        where p.product_id = pt.product_id and serial_number = %s'''
 
 # connect to database
 cnx = mysql.connector.connect(user='root',
@@ -79,7 +86,10 @@ if row is None and submit is True:
         print('Incorrect product type. Enter a different product type or add product type to the system ')
 else:
     # retrieve visits value from table and increment
-    print('The serial number you enter has already been used.')
+    cursore = cnx.cursor()
+    cursore.execute(return_Serial_used, (serial,serial,serial))
+    id = cursore.fetchone()
+    print('The serial number ',id[0],' you enter has already been used and registered to: ',id[2],' ', id[3],'for a ',id[1])
 
 print("</body></html>")
 cnx.close()  # close the connection 
