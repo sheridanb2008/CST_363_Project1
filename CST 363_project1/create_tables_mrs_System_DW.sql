@@ -69,4 +69,11 @@ WHERE p.product_id= pt.product_id;
 INSERT INTO recall_notices    
 	(notice_id,issue_description,affected_start_date,affected_end_date)
 SELECT notice_id,issue_description,affected_start_date,affected_end_date
-FROM mrs_project1.recall_notices
+FROM mrs_project1.recall_notices;
+
+-- MOVE FACT TABLE INFORMATION FROM OLTP DATABASE
+INSERT INTO affected_recalls    
+	(customer_id,serial_number,notice_id)
+SELECT (SELECT customer_id FROM mrs_project1.customer_purchases WHERE serial_number = p.serial_number),  p.serial_number,r.notice_id
+FROM mrs_project1.products p, mrs_project1.recall_notices r
+WHERE p.manufactured_date BETWEEN affected_start_date AND affected_end_date 
