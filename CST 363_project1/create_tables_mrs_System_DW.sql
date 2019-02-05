@@ -76,4 +76,12 @@ INSERT INTO affected_recalls
 	(customer_id,serial_number,notice_id)
 SELECT (SELECT customer_id FROM mrs_project1.customer_purchases WHERE serial_number = p.serial_number),  p.serial_number,r.notice_id
 FROM mrs_project1.products p, mrs_project1.recall_notices r
-WHERE p.manufactured_date BETWEEN affected_start_date AND affected_end_date 
+WHERE p.manufactured_date BETWEEN affected_start_date AND affected_end_date;
+
+-- Create VIEW
+CREATE VIEW customer_recall_info AS 
+	SELECT DISTINCT CONCAT(ci.customer_name, " - Customer ID: ", ci.customer_id) AS customer_name,
+					CONCAT(ci.address, " ", ci.city, ", ", ci.state, " ", ci.zip) AS customer_address,
+                    CONCAT(p.product_name, " - Serial Number: ", ar.serial_number) AS product_info
+    FROM customer_info ci, products p, affected_recalls ar
+    WHERE ci.customer_id = ar.customer_id AND p.serial_number = ar.serial_number;
